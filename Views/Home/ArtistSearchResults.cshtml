@@ -2,6 +2,6 @@
 <ul>
   @foreach(var artist in Model)
   {
-    <li>@artist.Maker</li>
+    <li><a href='/artists/@artist.Id'>@artist.Maker</a></li>
   }
 </ul>
