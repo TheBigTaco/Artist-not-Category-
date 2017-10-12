@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Rename
+namespace CD
 {
   public class Startup
   {
@@ -25,6 +25,7 @@ namespace Rename
     public void Configure(IApplicationBuilder app)
     {
       app.UseStaticFiles();
+      app.UseDeveloperExceptionPage();
       app.UseMvc(routes =>
       {
         routes.MapRoute(

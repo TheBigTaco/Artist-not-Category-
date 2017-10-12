@@ -1,0 +1,9 @@
+<h3>Here is all the music by @Model["artist"].Maker:</h3>
+<ol>
+  @foreach (var music in @Model["music"])
+  {
+    <li><p>@music.Record</p><p>$@music.Price</p><p>@music.Year</p></li>
+  }
+</ol>
+<p><a href='/artists/@Model["artist"].Id/music/new'>Add new music!</a></p>
+<p><a href="/">Return to Main Page</a></p>

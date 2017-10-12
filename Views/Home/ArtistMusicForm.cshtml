@@ -1,0 +1,12 @@
+<h1>Add new music @Model["artist"].Maker</h1>
+<form action="/music" method="post">
+  <input type="hidden" name="artist-id" value='@Model["artist"].Id' id="artist-id">
+  <label for="music-name">Music name</label>
+  <input type="text" name="music-name" id="music-name">
+  <label for="music-price">Music price</label>
+  <input type="text" name="music-price" id="music-price">
+  <label for="music-year">Music year</label>
+  <input type="text" name="music-year" id="music-year">
+
+  <button type="submit" name="button">Add music!</button>
+</form>
