@@ -72,11 +72,18 @@ namespace CD.Controllers
       return View("ArtistDetail", model);
     }
 
-    [HttpGet("/music/{id}")]
-    public ActionResult MusicDetail(int id)
+    [HttpGet("/artists/search_by_artist")]
+    public ActionResult ArtistSearch()
     {
-      Music music = Music.Find(id);
-      return View(music);
+      return View();
+    }
+
+    [HttpPost("/artists/results")]
+    public ActionResult ArtistSearchResults()
+    {
+      List<Artist> allArtists = Artist.GetAll();
+      List<Artist> matchedArtists = Artist.SearchArtists(allArtists, Request.Form["artist-search"]);
+      return View(matchedArtists);
     }
   }
 }

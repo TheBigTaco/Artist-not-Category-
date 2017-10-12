@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CD.Models
 {
@@ -38,6 +39,20 @@ namespace CD.Models
     public void AddMusic(Music music)
     {
       _music.Add(music);
+    }
+    public static List<Artist> SearchArtists(List<Artist> artists, string searched)
+    {
+      Regex regex = new Regex($@"{searched}", RegexOptions.IgnoreCase);
+      List<Artist> searchMatch = new List<Artist> {};
+      foreach(Artist artist in artists)
+      {
+        Match match = regex.Match(artist.Maker);
+        if (match.Success)
+        {
+          searchMatch.Add(artist);
+        }
+      }
+      return searchMatch;
     }
   }
 }
